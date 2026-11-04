@@ -1,0 +1,223 @@
+/* Base do manual de marca — página 16:9 em paisagem, do tamanho de um manual de
+   designer (2560 x 1440 px = 1920 x 1080 pt no PDF).
+
+   Esta folha cuida do papel: tamanho da página, margem, grade, numeração.
+   A MARCA entra pelas variáveis --marca-*, que o diagramador sobrescreve em
+   marca.css com as cores e fontes que o designer de sistema aprovou.
+   Não mexa aqui para mudar a marca: mexa no marca.css. */
+
+:root {
+  /* trocadas em marca.css */
+  --marca-primaria: #1b1b1b;
+  --marca-destaque: #777777;
+  --marca-fundo: #ffffff;
+  --marca-superficie: #f3f3f1;
+  --marca-texto: #141414;
+  --marca-texto-suave: #5a5a5a;
+  --marca-borda: #dddbd6;
+  --marca-escuro: #121212;
+  --marca-fonte-titulo: Georgia, "Times New Roman", serif;
+  --marca-fonte-texto: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --marca-raio: 12px;
+
+  /* grade da página */
+  --margem: 150px;
+  --coluna: 36px;
+}
+
+@page { size: 1920pt 1080pt; margin: 0; }
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: #8a8a8a;           /* só aparece na tela, nunca no PDF */
+  font-family: var(--marca-fonte-texto);
+  color: var(--marca-texto);
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+body { counter-reset: pag; }
+
+/* ---------- a página ---------- */
+.pagina {
+  position: relative;
+  width: 2560px;
+  height: 1440px;
+  padding: var(--margem);
+  background: var(--marca-fundo);
+  overflow: hidden;              /* nada vaza da borda */
+  page-break-after: always;
+  break-after: page;
+  counter-increment: pag;
+  display: flex;
+  flex-direction: column;
+}
+.pagina:last-of-type { page-break-after: auto; break-after: auto; }
+
+@media screen {
+  .pagina { margin: 28px auto; box-shadow: 0 10px 40px rgba(0,0,0,.35); }
+}
+
+/* marca d'água do cabeçalho, igual em todas as páginas internas */
+.pagina > .cabecalho {
+  position: absolute;
+  top: 62px;
+  left: var(--margem);
+  right: var(--margem);
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  font-size: 22px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--marca-texto-suave);
+}
+.pagina > .cabecalho .marca { font-weight: 700; color: var(--marca-primaria); }
+
+/* numeração automática: escreva só <div class="num"></div> */
+.num {
+  position: absolute;
+  right: var(--margem);
+  bottom: 60px;
+  font-size: 22px;
+  color: var(--marca-texto-suave);
+  letter-spacing: .1em;
+}
+.num::after { content: "Pág. " counter(pag); }
+
+/* ---------- tipos ---------- */
+.titulo {
+  font-family: var(--marca-fonte-titulo);
+  font-size: 88px;
+  line-height: 1.04;
+  margin: 46px 0 34px;
+  color: var(--marca-primaria);
+  font-weight: 700;
+}
+.titulo--grande { font-size: 150px; }
+.subtitulo {
+  font-size: 34px;
+  line-height: 1.35;
+  color: var(--marca-texto-suave);
+  margin: 0 0 40px;
+  max-width: 1500px;
+}
+.texto { font-size: 30px; line-height: 1.55; max-width: 1180px; }
+.texto p { margin: 0 0 22px; }
+.texto strong { color: var(--marca-primaria); }
+.etiqueta {
+  font-size: 20px;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: var(--marca-texto-suave);
+  margin: 0 0 14px;
+}
+.legenda { font-size: 22px; line-height: 1.4; color: var(--marca-texto-suave); }
+.mono { font-family: ui-monospace, "DejaVu Sans Mono", Menlo, Consolas, monospace; }
+
+/* ---------- arranjos ---------- */
+.corpo { flex: 1; display: flex; gap: 90px; min-height: 0; }
+.corpo > .lado { width: 820px; flex: none; }
+.corpo > .palco {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.grade { display: grid; gap: 40px; }
+.grade--2 { grid-template-columns: repeat(2, 1fr); }
+.grade--3 { grid-template-columns: repeat(3, 1fr); }
+.grade--4 { grid-template-columns: repeat(4, 1fr); }
+.centro { display: flex; align-items: center; justify-content: center; }
+
+.caixa {
+  background: var(--marca-superficie);
+  border: 1px solid var(--marca-borda);
+  border-radius: var(--marca-raio);
+  padding: 40px;
+}
+.quadro-claro { background: var(--marca-fundo); border: 1px solid var(--marca-borda); }
+.quadro-escuro { background: var(--marca-escuro); color: #fff; }
+
+/* ---------- peças do manual ---------- */
+.amostra {                       /* bloco de cor da paleta */
+  border-radius: var(--marca-raio);
+  padding: 44px 40px;
+  min-height: 420px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  color: #fff;
+}
+.amostra .nome { font-size: 40px; font-weight: 700; margin-bottom: 18px; }
+.amostra .codigos { font-size: 24px; line-height: 1.5; opacity: .92; }
+.amostra--claro { color: var(--marca-texto); border: 1px solid var(--marca-borda); }
+
+.certo, .errado { position: relative; }
+.certo::after, .errado::after {
+  position: absolute;
+  left: 50%;
+  bottom: -46px;
+  transform: translateX(-50%);
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: .08em;
+}
+.certo::after { content: "CERTO"; color: var(--marca-primaria); }
+.errado::after { content: "ERRADO"; color: var(--marca-destaque); }
+.errado .peca { opacity: .95; }
+
+.marcador {                      /* a bolinha das listas */
+  display: inline-block;
+  width: 14px; height: 14px;
+  border-radius: 50%;
+  background: var(--marca-destaque);
+  margin-right: 16px;
+}
+ul.lista { list-style: none; padding: 0; margin: 0; font-size: 28px; line-height: 1.7; }
+ul.lista li { margin-bottom: 14px; }
+
+table.tabela { width: 100%; border-collapse: collapse; font-size: 26px; }
+table.tabela th, table.tabela td {
+  text-align: left;
+  padding: 18px 20px;
+  border-bottom: 1px solid var(--marca-borda);
+  vertical-align: top;
+}
+table.tabela th { color: var(--marca-texto-suave); font-weight: 600; font-size: 22px;
+                  text-transform: uppercase; letter-spacing: .1em; }
+
+pre.codigo {
+  background: var(--marca-escuro);
+  color: #e8e8e8;
+  border-radius: var(--marca-raio);
+  padding: 36px 40px;
+  font-size: 24px;
+  line-height: 1.6;
+  font-family: ui-monospace, "DejaVu Sans Mono", Menlo, Consolas, monospace;
+  overflow: hidden;
+}
+
+img.peca, svg.peca { max-width: 100%; max-height: 100%; height: auto; }
+
+/* ---------- páginas especiais ---------- */
+.pagina--capa {
+  background: var(--marca-primaria);
+  color: #fff;
+  justify-content: space-between;
+}
+.pagina--capa .titulo, .pagina--capa .etiqueta, .pagina--capa .legenda { color: #fff; }
+.pagina--divisoria {
+  background: var(--marca-primaria);
+  color: #fff;
+  align-items: flex-start;
+  justify-content: center;
+}
+.pagina--divisoria .titulo { color: #fff; font-size: 170px; }
+.pagina--escura { background: var(--marca-escuro); color: #fff; }
+.pagina--escura .titulo { color: #fff; }
+.pagina--escura .texto, .pagina--escura .legenda, .pagina--escura .etiqueta { color: #cfcfcf; }

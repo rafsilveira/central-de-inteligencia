@@ -1,0 +1,9 @@
+# Segredos da Central: nunca vão para o git (o .env.example, sem valores, vai)
+.env
+*.env
+!.env.example
+# JSON do cliente OAuth do Google (tem a chave secreta) e JSON de token
+client_secret*.json
+06 — Scripts e Automações/Tokens e Configs/*.json
+# Configuração local do Claude Code nesta máquina
+.claude/settings.local.json
