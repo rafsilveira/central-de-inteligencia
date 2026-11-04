@@ -2,6 +2,12 @@
 
 O que mudou em cada versão, da mais nova para a mais antiga. A atualização mostra o trecho entre a sua versão e a nova.
 
+## 1.1.1 — 2026-11-04
+
+- O arquivo `LICENSE` ficou só com a licença MIT, como o GitHub espera, e a página do repositório passa a mostrar "MIT".
+  O aviso sobre as habilidades que vêm de outros repositórios (offers e seo-audit) foi para o `TERCEIROS.md`. Nada muda no
+  uso da Central.
+
 ## 1.1.0 — 2026-11-04
 
 - Nova habilidade: auditoria de SEO do site (`seo-audit`). Diga "audita o SEO do meu site" e ela mostra o que impede o

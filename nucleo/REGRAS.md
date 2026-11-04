@@ -6,7 +6,7 @@ As regras da sua empresa ficam no `00_MASTER_GUIDELINE.md`. Quando uma regra da 
 ## O que é de quem
 
 - **Núcleo** (vem da Hebel D2C e é trocado na atualização): `nucleo/`, as habilidades de `.claude/skills/` listadas no
-  `README.md`, `.claude/agents/`, `CLAUDE.md`, `README.md`, `NOVIDADES.md`, `VERSAO`, `LICENSE` e `.gitignore`.
+  `README.md`, `.claude/agents/`, `CLAUDE.md`, `README.md`, `NOVIDADES.md`, `VERSAO`, `LICENSE`, `TERCEIROS.md` e `.gitignore`.
 - **Da empresa** (a atualização nunca lê nem escreve): todo o resto. `00_CURRENT_STATE.md`, `00_MASTER_GUIDELINE.md`,
   `00_RETOMADA.md`, as pastas numeradas, `marca/`, `_arquivo/` e o `.env`.
 - Para mudar um comportamento, não edite arquivo do núcleo. Escreva a regra no `00_MASTER_GUIDELINE.md`. Se for uma

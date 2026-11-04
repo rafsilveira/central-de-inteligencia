@@ -42,7 +42,7 @@ Quem usa git também pode atualizar com `python nucleo/atualizar.py` (no Mac e n
 | `nucleo/`: regras, guias, moldes, guardrail e atualizador | `00_CURRENT_STATE.md`: o estado da empresa |
 | `.claude/skills/`: as habilidades da lista abaixo | `00_MASTER_GUIDELINE.md`: as regras da casa e o histórico |
 | `.claude/agents/`: a equipe da agência de marca | as pastas numeradas (`01 — Memória e Contexto` e as outras) |
-| `CLAUDE.md`, `README.md`, `NOVIDADES.md`, `VERSAO`, `LICENSE` | `marca/`, `_arquivo/` e o `.env` com as suas chaves |
+| `CLAUDE.md`, `README.md`, `NOVIDADES.md`, `VERSAO`, `LICENSE`, `TERCEIROS.md` | `marca/`, `_arquivo/` e o `.env` com as suas chaves |
 | | as suas habilidades, em `.claude/skills/casa-<nome>/` |
 
 Para mudar o jeito da Central trabalhar, escreva a regra no `00_MASTER_GUIDELINE.md`. Não edite o núcleo.
