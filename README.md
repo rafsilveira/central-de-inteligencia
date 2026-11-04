@@ -68,6 +68,9 @@ Uma habilidade para cada bloco da máquina de vendas do curso:
 - **offers**: monta a oferta de produto físico, com bônus que respondem objeção real, garantia por escrito, urgência real
   e a conta do lucro por desconto. Origem: [marketingskills](https://github.com/coreyhaines31/marketingskills), de Corey
   Haines, licença MIT.
+- **seo-audit**: audita o SEO do site: o que impede o Google de achar e mostrar as páginas, as páginas de produto, o
+  contato no celular e o Perfil da Empresa no Google quando há loja ou showroom. Entrega o plano de ação em ordem de
+  gravidade. Origem: [marketingskills](https://github.com/coreyhaines31/marketingskills), de Corey Haines, licença MIT.
 
 E uma equipe inteira:
 

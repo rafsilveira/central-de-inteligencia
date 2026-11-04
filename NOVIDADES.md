@@ -2,6 +2,12 @@
 
 O que mudou em cada versão, da mais nova para a mais antiga. A atualização mostra o trecho entre a sua versão e a nova.
 
+## 1.1.0 — 2026-11-04
+
+- Nova habilidade: auditoria de SEO do site (`seo-audit`). Diga "audita o SEO do meu site" e ela mostra o que impede o
+  Google de achar e mostrar as suas páginas, em ordem de gravidade, com o plano para corrigir. Quando a empresa recebe
+  cliente num endereço, confere também o Perfil da Empresa no Google. Origem: marketingskills, de Corey Haines (licença MIT).
+
 ## 1.0.0 — 2026-11-04
 
 - Primeira versão distribuída pelo GitHub.

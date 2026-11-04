@@ -1,0 +1,3 @@
+Origem: https://github.com/coreyhaines31/marketingskills, pasta skills/seo-audit (commit 88c79f6, de 2026-10-30, licença MIT). Copiado sem evals/ em 2026-11-04, depois de lido, revisado sem executar e testado numa Central de exemplo.
+
+Adaptação (2026-11-04): SKILL.md ganhou a descrição em português e a seção "Auditoria de SEO para fábrica ou importadora que vende direto" no início. A leitura do contexto passou a ser o 00_CURRENT_STATE.md e o 00_MASTER_GUIDELINE.md da Central. A lista de habilidades relacionadas foi trocada pelas da semente (pauta-do-cliente, offers e relatorio-do-mes), e saiu a linha que mandava para a ai-seo. O corpo do método original e a pasta references/ ficaram como estavam. A licença MIT (LICENSE) foi mantida.
