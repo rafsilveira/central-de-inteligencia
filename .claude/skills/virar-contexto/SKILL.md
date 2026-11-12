@@ -28,4 +28,6 @@ Faça commit do bilhete.
 
 Diga ao usuário que o contexto pode ser compactado agora (no Claude Code, com `/compact`). Na volta, rode o Bom dia da `rotina-diaria`, que lê o bilhete, e continue do passo em que parou.
 
+Se a Central usa a conversa mestre, o Boa noite já reescreve o bilhete `00_SESSAO_MESTRE.md`, que é do dia. O `00_RETOMADA.md` é outra coisa: é a tarefa que ficou na mão agora, com detalhe que não cabe no bilhete.
+
 Apague o `00_RETOMADA.md` quando o assunto dele estiver fechado, registrando no changelog o que foi concluído. Um bilhete velho faz a próxima sessão retomar uma tarefa que já acabou.

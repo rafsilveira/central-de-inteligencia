@@ -8,7 +8,7 @@ As regras da sua empresa ficam no `00_MASTER_GUIDELINE.md`. Quando uma regra da 
 - **Núcleo** (vem da Hebel D2C e é trocado na atualização): `nucleo/`, as habilidades de `.claude/skills/` listadas no
   `README.md`, `.claude/agents/`, `CLAUDE.md`, `README.md`, `NOVIDADES.md`, `VERSAO`, `LICENSE`, `TERCEIROS.md` e `.gitignore`.
 - **Da empresa** (a atualização nunca lê nem escreve): todo o resto. `00_CURRENT_STATE.md`, `00_MASTER_GUIDELINE.md`,
-  `00_RETOMADA.md`, as pastas numeradas, `marca/`, `_arquivo/` e o `.env`.
+  `00_RETOMADA.md`, `00_SESSAO_MESTRE.md`, as pastas numeradas, `marca/`, `_arquivo/` e o `.env`.
 - Para mudar um comportamento, não edite arquivo do núcleo. Escreva a regra no `00_MASTER_GUIDELINE.md`. Se for uma
   habilidade nova, crie em `.claude/skills/casa-<nome>/`, um prefixo que o núcleo nunca usa. Se alguém mexer no núcleo, a
   atualização guarda a versão mexida em `_arquivo/` antes de trocar, mas troca.
@@ -19,6 +19,34 @@ As regras da sua empresa ficam no `00_MASTER_GUIDELINE.md`. Quando uma regra da 
    confira lá ou no próprio sistema.
 2. Leia as regras da casa, no topo do `00_MASTER_GUIDELINE.md`, antes de mudar qualquer arquivo.
 3. Se a pasta não tem `00_CURRENT_STATE.md`, a Central ainda não foi iniciada. Ofereça a habilidade `iniciar-central`.
+
+## A conversa mestre
+
+Uma conversa manda e as outras trabalham. A conversa em que o dono fala todo dia é a **mestre**: ela decide, faz o Bom dia
+e o Boa noite, despacha o trabalho e confere o que voltou.
+
+- Tarefa com mais de uns cinco comandos **sai da mestre**: abra uma conversa nova (ou um agente, se o seu plano tiver) com
+  uma instrução curta e peça o resultado em no máximo 15 linhas. O que importa volta escrito em arquivo, não no papo.
+- Nada que a Central precise lembrar fica só na conversa. Decisão, número e combinado vão para o `00_CURRENT_STATE.md`,
+  para o histórico do `00_MASTER_GUIDELINE.md` ou para o `00_SESSAO_MESTRE.md`.
+- O `00_SESSAO_MESTRE.md` é o bilhete da mestre: curto (teto de 80 linhas), só o que está em voo. O molde está em
+  `nucleo/modelos/00_SESSAO_MESTRE.md`. Quem escreve é o Boa noite; quem lê é o Bom dia.
+- No fim do dia o Boa noite grava o estado, reescreve o bilhete, confere que os combinados do dia estão escritos e só
+  então a conversa é limpa (no Claude Code, `/clear`). No dia seguinte a mestre abre vazia e lê o bilhete.
+- Se a conversa encher no meio de um trabalho, antes do fim do dia, use a habilidade `virar-contexto`: ela salva tudo e
+  deixa o `00_RETOMADA.md`. O bilhete da mestre é do dia; o `00_RETOMADA.md` é da tarefa que ficou na mão.
+
+## Economia de tokens
+
+O plano tem um limite de uso, e ele é o mesmo para todas as conversas e agentes: quando acaba, para tudo. O que mais
+gasta não é escrever, é **reler o contexto** a cada resposta. Conversa comprida relê tudo de novo a cada pedido.
+
+- Trabalho que não precisa do histórico vai para conversa nova com instrução curta.
+- Saída de comando sempre cortada (`head`, `tail`); arquivo grande lido por trecho; passos juntos num script, em vez de
+  um comando por vez.
+- Antes de começar algo grande, olhe quanto do plano já foi usado (no Claude Code, `/usage`). Perto do fim da semana,
+  segure o que pode esperar o reinício.
+- Para ver onde o uso foi: `python nucleo/ferramentas/mede_tokens.py` (no Mac e no Linux, `python3`). Ele só lê.
 
 ## Segredos
 

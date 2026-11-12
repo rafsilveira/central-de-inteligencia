@@ -35,6 +35,20 @@ arquivo do núcleo, a sua versão é guardada em `_arquivo/` antes da troca. Par
 
 Quem usa git também pode atualizar com `python nucleo/atualizar.py` (no Mac e no Linux, `python3`).
 
+## O dia a dia
+
+Abra a Central e diga **Bom dia**. Ela lê o bilhete que a conversa de ontem deixou, o estado da empresa e as suas regras,
+e responde com o resumo e a pergunta "O que faremos hoje?". No fim, diga **Boa noite**: ela grava o que mudou, reescreve o
+bilhete, confere que os combinados do dia estão escritos e faz o commit.
+
+Essa conversa de todo dia é a **mestre**: ela decide, despacha e confere. Tarefa grande não roda nela — vai para uma
+conversa nova com instrução curta e volta em poucas linhas, com o resultado escrito em arquivo. Por isso a mestre pode ser
+limpa no fim do dia (`/clear`) sem perder nada: o que ela precisa lembrar está no `00_SESSAO_MESTRE.md` e no estado.
+
+Isso também economiza o seu plano: uma conversa comprida **relê todo o contexto a cada resposta**, e é isso que mais
+consome tokens. Para ver onde o seu uso foi na semana, rode `python nucleo/ferramentas/mede_tokens.py` (no Mac e no
+Linux, `python3`). Ele só lê os registros que o Claude Code já guarda no seu computador e mostra quais conversas pesaram.
+
 ## O que é seu e o que é da Hebel
 
 | Da Hebel (o núcleo, que se atualiza) | Seu (a atualização não toca) |
@@ -43,6 +57,7 @@ Quem usa git também pode atualizar com `python nucleo/atualizar.py` (no Mac e n
 | `.claude/skills/`: as habilidades da lista abaixo | `00_MASTER_GUIDELINE.md`: as regras da casa e o histórico |
 | `.claude/agents/`: a equipe da agência de marca | as pastas numeradas (`01 — Memória e Contexto` e as outras) |
 | `CLAUDE.md`, `README.md`, `NOVIDADES.md`, `VERSAO`, `LICENSE`, `TERCEIROS.md` | `marca/`, `_arquivo/` e o `.env` com as suas chaves |
+| | `00_SESSAO_MESTRE.md` e `00_RETOMADA.md`: os bilhetes entre uma sessão e outra |
 | | as suas habilidades, em `.claude/skills/casa-<nome>/` |
 
 Para mudar o jeito da Central trabalhar, escreva a regra no `00_MASTER_GUIDELINE.md`. Não edite o núcleo.
@@ -81,12 +96,15 @@ E uma equipe inteira:
 E as de rotina:
 
 - **iniciar-central**: a entrevista que liga a Central.
-- **rotina-diaria**: o Bom dia e o Boa noite, que mantêm o estado da Central em dia.
+- **rotina-diaria**: o Bom dia e o Boa noite, que mantêm o estado da Central em dia e deixam o bilhete do dia seguinte.
 - **virar-contexto**: salva tudo em arquivo antes de compactar uma conversa longa.
 - **atualizar-central**: traz a versão nova do núcleo sem mexer nos seus arquivos.
 
 Guias: `nucleo/guias/Pratica_3_Meta_e_Google_Ads.md` explica como conectar o Meta Ads e o Google Ads sem cartão e com tudo
 pausado.
+
+Ferramentas: `nucleo/ferramentas/mede_tokens.py` mostra onde foi o seu uso de tokens no Claude Code, por conversa e por
+modelo. Só lê e nada sai do seu computador.
 
 ## Licença
 

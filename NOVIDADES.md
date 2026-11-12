@@ -2,6 +2,19 @@
 
 O que mudou em cada versão, da mais nova para a mais antiga. A atualização mostra o trecho entre a sua versão e a nova.
 
+## 1.2.0 — 2026-11-12
+
+- **A conversa de todo dia agora é a mestre.** Ela decide, despacha e confere; tarefa grande vai para uma conversa nova
+  com instrução curta e volta em poucas linhas. O Boa noite passou a reescrever um bilhete curto, o `00_SESSAO_MESTRE.md`,
+  e a conferir que os combinados do dia estão escritos antes de a conversa ser limpa. O Bom dia abre vazio e lê o bilhete.
+  O bilhete é seu: a atualização não toca nele. O molde está em `nucleo/modelos/00_SESSAO_MESTRE.md`.
+- **Medidor de uso de tokens.** `python nucleo/ferramentas/mede_tokens.py` (no Mac e no Linux, `python3`) mostra onde foi o
+  seu uso na semana, por conversa e por modelo, e explica o que pesa. Ele só lê os registros que o Claude Code já guarda no
+  seu computador; nada sai daí. Uma vez por semana, o Bom dia dá a notícia em uma linha.
+- **Regras novas no núcleo:** "A conversa mestre" e "Economia de tokens". O que mais consome o plano é reler o contexto a
+  cada resposta, então trabalho que não precisa do histórico vai para conversa nova, saída de comando vai cortada e
+  arquivo grande é lido por trecho.
+
 ## 1.1.1 — 2026-11-04
 
 - O arquivo `LICENSE` ficou só com a licença MIT, como o GitHub espera, e a página do repositório passa a mostrar "MIT".
